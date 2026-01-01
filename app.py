@@ -19,9 +19,7 @@ data = []
 index = {}
 tags = {
     'RELIANCE': 6598251,
-    'BEL': 6595017,
-    'HARIOMPIPE': 138160777,
-    'TARIL': 6599283
+    'BEL': 6595017
 }
 k = 0.1
 holdings = defaultdict(list)
@@ -164,7 +162,7 @@ def background():
     global index
     global data
     for i in tags.keys():
-        sleep(1)
+        sleep(5)
         url = f"https://www.screener.in/company/{i}/consolidated"
         response = requests.get(url)
         soup = BeautifulSoup(response.text, 'html.parser')
@@ -458,4 +456,5 @@ atexit.register(lambda: scheduler.shutdown())
 
 
 if __name__ == "__main__":
+
     app.run(debug=True)
